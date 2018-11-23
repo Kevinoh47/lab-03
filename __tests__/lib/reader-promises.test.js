@@ -1,6 +1,7 @@
 'use strict';
 
 jest.mock('fs');
+jest.setTimeout(30000);
 
 const reader = require('../../lib/reader-promises.js');
 
