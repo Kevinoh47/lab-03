@@ -3,7 +3,8 @@
 jest.mock('fs');
 jest.setTimeout(30000);
 
-const reader = require('../../lib/reader.js');
+//const reader = require('../../lib/reader.js');
+const reader = require('../../lib/reader-callback-extended.js');
 
 describe('File Reader Module', () => {
 
@@ -20,12 +21,13 @@ describe('File Reader Module', () => {
   //   });
   // });
 
-  it('reads 3 files', done => {
-    let files = ['file1.txt', 'file2.txt', 'file3.txt'];
+  it('reads more than 3 files', done => {
+    let files = ['file1.txt', 'file2.txt', 'file3.txt', 'file4.txt', 'file5.txt'];
     reader.readAll(files, (err,data) => {
       expect(err).toBeUndefined();
       expect(data instanceof Array ).toBeTruthy();
-      expect(data.length ).toBe(3);
+      expect(data.length ).toBe(5); 
+      // console.log(data); //this is helpful
       done();
     });
   });
